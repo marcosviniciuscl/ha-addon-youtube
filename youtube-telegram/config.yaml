@@ -1,0 +1,65 @@
+name: "YouTube para Telegram"
+version: "1.0.0"
+slug: "youtube_telegram"
+description: >-
+  Recebe links do YouTube pelo Telegram, baixa o vídeo ou o áudio e devolve no
+  próprio chat. Arquivos que passam do limite do Telegram são enviados para o
+  MinIO e entregues por um link temporário, apagado depois.
+arch:
+  - aarch64
+  - amd64
+  - armv7
+  - armhf
+url: "https://github.com/SEU_USUARIO/ha-addon-youtube"
+startup: services
+boot: auto
+init: false
+stage: stable
+timeout: 30
+map:
+  - type: share
+    read_only: false
+options:
+  telegram_token: ""
+  usuarios_autorizados: []
+  aceitar_grupos: false
+  youtube:
+    ativo: true
+    altura_maxima: 1080
+    duracao_maxima_min: 120
+    mp3_bitrate_kbps: 192
+  telegram:
+    tamanho_maximo_mb: 50
+  minio:
+    ativo: false
+    bucket: "youtube-telegram"
+    secure: true
+    url_expira_min: 60
+    apagar_apos_min: 70
+  log:
+    nivel: INFO
+schema:
+  telegram_token: str
+  usuarios_autorizados:
+    - int
+  aceitar_grupos: bool
+  youtube:
+    ativo: bool
+    altura_maxima: "int(144,2160)"
+    duracao_maxima_min: "int(1,1440)"
+    mp3_bitrate_kbps: "int(64,320)"
+    cookies: "str?"
+  telegram:
+    tamanho_maximo_mb: "int(1,50)"
+  minio:
+    ativo: bool
+    endpoint: "str?"
+    access_key: "str?"
+    secret_key: "password?"
+    bucket: str
+    secure: bool
+    regiao: "str?"
+    url_expira_min: "int(1,10080)"
+    apagar_apos_min: "int(1,10080)"
+  log:
+    nivel: "list(DEBUG|INFO|WARNING|ERROR)"
