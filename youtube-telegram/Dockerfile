@@ -1,4 +1,4 @@
-ARG BUILD_VERSION="1.0.0"
+ARG BUILD_VERSION="1.0.1"
 ARG BUILD_ARCH="amd64"
 
 FROM ghcr.io/home-assistant/base:latest

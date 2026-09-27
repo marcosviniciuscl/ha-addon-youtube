@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+
+- Corrige o build do Dockerfile: `run.sh` agora é executado de `/app/run.sh`.
+- Re-declara os `ARG` após o `FROM` (remove o warning de `BUILD_VERSION`).
+- Aponta as URLs para o repositório real do add-on.
+
 ## 1.0.0
 
 - Versão inicial.
