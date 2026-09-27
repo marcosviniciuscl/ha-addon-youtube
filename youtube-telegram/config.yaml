@@ -10,7 +10,7 @@ arch:
   - amd64
   - armv7
   - armhf
-url: "https://github.com/SEU_USUARIO/ha-addon-youtube"
+url: "https://github.com/marcosviniciuscl/ha-addon-youtube"
 startup: services
 boot: auto
 init: false

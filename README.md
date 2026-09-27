@@ -80,13 +80,12 @@ cookies do navegador (formato Netscape) para um dos locais:
 
 Veja `youtube-telegram/DOCS.md` para todas as opções.
 
-## Antes de publicar
+## Repositório
 
-Troque o placeholder `SEU_USUARIO` pela sua conta do GitHub nestes arquivos:
-
-- `repository.yaml` (campo `url`)
-- `youtube-telegram/config.yaml` (campo `url`)
-- `youtube-telegram/Dockerfile` (label `org.opencontainers.image.source`)
+Este add-on já aponta para `https://github.com/marcosviniciuscl/ha-addon-youtube`.
+Se você mover o projeto para outro repositório ou organização, atualize o `url`
+em `repository.yaml`, em `youtube-telegram/config.yaml` e no label
+`org.opencontainers.image.source` do `Dockerfile`.
 
 ## Testar no PC (sem Home Assistant)
 
