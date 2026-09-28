@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2
+
+- O áudio do YouTube agora é sempre salvo em **MP3** (duas opções: bitrate
+  configurado e 128 kbps), o formato preferido do Holyrics.
+- O vídeo continua sendo salvo sempre em **MP4**.
+
 ## 1.0.1
 
 - Corrige o build do Dockerfile: `run.sh` agora é executado de `/app/run.sh`.

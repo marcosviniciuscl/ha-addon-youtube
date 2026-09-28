@@ -193,11 +193,14 @@ def montar_opcoes(info: dict, cfg) -> tuple[str, list[list[tuple[str, int]]], li
 
     estim_audio = estimativa_audio(formatos, duracao)
     if com_ffmpeg:
+        # O áudio é sempre salvo em MP3 (formato preferido do Holyrics).
         pares_audio = [
-            ({"formato": "bestaudio[ext=m4a]/bestaudio", "mp3": False, "rotulo": "Melhor áudio (m4a)", "tipo": "audio"},
-             "🎵 Melhor áudio"),
-            ({"formato": "bestaudio/best", "mp3": True, "rotulo": f"MP3 {cfg.yt_mp3_kbps} kbps", "tipo": "audio"},
+            ({"formato": "bestaudio/best", "mp3": True, "kbps": cfg.yt_mp3_kbps,
+              "rotulo": f"MP3 {cfg.yt_mp3_kbps} kbps", "tipo": "audio"},
              f"🎵 MP3 {cfg.yt_mp3_kbps}k"),
+            ({"formato": "bestaudio/best", "mp3": True, "kbps": 128,
+              "rotulo": "MP3 128 kbps", "tipo": "audio"},
+             "🎵 MP3 128k (leve)"),
         ]
     else:
         pares_audio = [
@@ -292,7 +295,7 @@ def baixar_youtube(estado: dict, url: str, pasta: Path, selecao: dict, cfg) -> t
         opts["postprocessors"] = [{
             "key": "FFmpegExtractAudio",
             "preferredcodec": "mp3",
-            "preferredquality": str(cfg.yt_mp3_kbps),
+            "preferredquality": str(selecao.get("kbps") or cfg.yt_mp3_kbps),
         }]
 
     try:

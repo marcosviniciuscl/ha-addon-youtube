@@ -4,7 +4,8 @@ Add-on do Home Assistant que baixa vídeos e áudios do YouTube e entrega **dire
 no seu Telegram**. Você manda um link, escolhe o formato e recebe o arquivo no
 chat — sem sair do celular.
 
-- Oferece **duas opções de vídeo** e **duas de áudio** (incluindo MP3) por link.
+- Oferece **duas opções de vídeo** (sempre salvo em **MP4**) e **duas de áudio**
+  (sempre salvo em **MP3**) por link.
 - Mostra o **progresso** do download e da conversão na mesma mensagem.
 - Envia no chat os arquivos de até **50 MB** (limite do Telegram).
 - Arquivos maiores são enviados para o seu **MinIO** e entregues por um
